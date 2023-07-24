@@ -1,8 +1,13 @@
 import { useState } from "react";
+import { addEmployee } from "../EmployeeSlice";
+import { useDispatch } from "react-redux";
 // import randomly, { randomNumber } from "../utility/randomly";
 //controlled component/form
 
-export default function Form({ addEmployee }) {
+export default function Form() {
+
+  const dispatch = useDispatch()
+
   let [form, setForm] = useState({
     name: "",
     title: "",
@@ -60,7 +65,7 @@ export default function Form({ addEmployee }) {
       emailError: false,
     });
 
-    addEmployee(employee);   
+    dispatch(addEmployee(employee));   
        
     
   }

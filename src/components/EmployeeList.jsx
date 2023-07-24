@@ -1,8 +1,13 @@
 import EmployeeListItem from "./EmployeeListItem";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
-export default function EmployeeList({ employee }) {
-  return employee.map((employee, index) => {
+export default function EmployeeList() {
+
+  const employee = useSelector((state) => state.employee)
+  
+
+  return employee.data.map((employee, index) => {
     return (
       <Link to={`/EmployeePage/${employee.name}`} className="list-box" key={employee.id}>
         <EmployeeListItem
